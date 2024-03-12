@@ -15,7 +15,6 @@ export default defineNuxtConfig({
     'nitro-cloudflare-dev',
   ],
   experimental: {
-    inlineSSRStyles: false,
     viewTransition: false,
     renderJsonPayloads: true,
   },
