@@ -3,7 +3,6 @@ import process from 'node:process'
 const isDev = process.env.NODE_ENV === 'development'
 
 const apiBaseUrl = '/api'
-// const apiBaseUrl = 'https://movies-proxy.vercel.app'
 
 export default defineNuxtConfig({
   modules: [

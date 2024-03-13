@@ -25,7 +25,7 @@ export function fetchTMDB(url: string, params: Record<string, string | number | 
   const hash = ohash([url, params])
   const state = useState<any>(hash, () => null)
   if (state.value)
-    return state.value
+    return Promise.resolve(state.value)
   if (!promiseCache.has(hash)) {
     promiseCache.set(
       hash,
@@ -40,7 +40,7 @@ export function fetchTMDB(url: string, params: Record<string, string | number | 
         }),
     )
   }
-  return promiseCache.get(hash)!
+  return Promise.resolve(promiseCache.get(hash))!
 }
 
 export function listMedia(type: MediaType, query: string, page: number): Promise<PageResult<Media>> {

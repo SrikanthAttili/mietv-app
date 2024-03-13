@@ -3,6 +3,7 @@ export default defineNuxtRouteMiddleware((to) => {
     return
 
   // Disable built-in Vue transitions
-  // to.meta.pageTransition = false
+  to.meta.pageTransition = false
   to.meta.layoutTransition = false
+  
 })
