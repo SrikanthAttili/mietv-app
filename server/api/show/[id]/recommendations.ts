@@ -20,5 +20,5 @@ export default eventHandler(async (event) => {
     return null
   }
 
-  return { libraries: data }
+  return { results: data }
 })

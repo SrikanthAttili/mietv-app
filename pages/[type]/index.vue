@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import type { MediaType } from '~/types'
+import type { MediaType1 } from '~/types'
 import { QUERY_LIST } from '~/constants/lists'
 
 definePageMeta({
   key: route => route.fullPath,
   validate: ({ params }) => {
-    return ['movie', 'tv'].includes(params.type as MediaType)
+    return ['movie', 'tv', 'show'].includes(params.type as MediaType1)
   },
 })
 
 const route = useRoute()
-const type = computed(() => route.params.type as MediaType || 'movie')
+const type = computed(() => route.params.type as MediaType1 || 'show')
 
 useHead({
-  title: type.value === 'movie' ? 'Movies' : 'TV Shows',
+  title: type.value === 'show' ? 'Shows' : 'TV Shows',
 })
 
-const queries = computed(() => QUERY_LIST[type.value as MediaType])
+const queries = computed(() => QUERY_LIST[type.value as MediaType1])
 
 const AsyncWrapper = defineComponent(async (_, ctx) => {
   if (!queries.value)
     throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
 
-  const list = await listMedia(type.value, queries.value?.[0].query, 1)
+  const list = await listMedia1(type.value, queries.value?.[0].query, 1)
   if (!list)
     return () => {}
-  const item = await getMedia(type.value, list.results?.[0].id)
+  const item = await getMedia1(type.value, list?.[0].id)
   return () => ctx.slots?.default?.({ item })
 })
 </script>

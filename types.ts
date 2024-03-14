@@ -1,4 +1,4 @@
-export type MediaType = 'movie' | 'tv'
+export type MediaType = 'movie' | 'tv' | 'show'
 export type MediaType1 = 'show'
 
 export interface Media1 {
@@ -8,11 +8,13 @@ export interface Media1 {
   poster_path: string
   media_type?: MediaType1
   genres?: Genre[]
-  seasons?: Season[]
+  seasons?: Season1[]
   credits?: {
     cast: Person1[]
   }
   trailer_path?: string
+  backdrop_path?: string
+  overview?: string
 }
 
 export interface Media {
@@ -66,6 +68,21 @@ export interface Person1 {
   place_of_birth: string
   birthday: string
   profile_path: string
+  external_ids?: External_ids
+}
+
+export interface External_ids{
+  id?: string
+  person_id?: string
+  linkedin_id: string
+  github_id: string
+  email: string
+  created_at: string
+  imdb_id?: string
+  facebook_id?: string
+  instagram_id?: string
+  twitter_id?: string
+  homepage?: string
 }
 
 export interface Person {
@@ -119,7 +136,7 @@ export interface Video1 {
 }
 
 export interface Season1 {
-  episodes?: Episode[]
+  episodes?: Episode1[]
   id: string
   name: string
   season_number: number
@@ -198,11 +215,11 @@ export interface Genre {
 }
 
 export interface QueryItem {
-  type: MediaType
+  type: MediaType1
   title: string
   query: string
 }
 
 export interface Credits {
-  cast: Media[]
+  cast: Media1[]
 }

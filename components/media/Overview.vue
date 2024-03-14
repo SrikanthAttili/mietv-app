@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Media, MediaType } from '~/types'
+import type { Media, Media1, MediaType1 } from '~/types'
 
 defineProps<{
-  item: Media
-  type: MediaType
+  item: Media1
+  type: MediaType1
 }>()
 </script>
 

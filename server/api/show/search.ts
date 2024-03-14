@@ -18,9 +18,9 @@ export default eventHandler(async (event) => {
   const offset = ((page || 1) - 1) * pageSize
 
   const client = await serverSupabaseClient<Database>(event)
-  const { data, error } = await client
+  const { data, count, error } = await client
     .from('show')
-    .select('*') // Adjust columns as needed
+    .select('*', {count: 'planned'}) // Adjust columns as needed
     .textSearch('fts_on_title', `'` + decodeURIComponent(searchString) + `'`)
     .range(offset, offset + pageSize - 1)
     .order('id')
@@ -30,5 +30,5 @@ export default eventHandler(async (event) => {
     return null
   }
 
-  return { libraries: data }
+  return { results : data, total_results : count }
 })

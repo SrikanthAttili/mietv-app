@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Person } from '~/types'
+import type { Person, Person1 } from '~/types'
 
 defineProps<{
-  item: Person
+  item: Person1
 }>()
 </script>
 
@@ -19,7 +19,7 @@ defineProps<{
         width="500"
         height="800"
         format="webp"
-        :src="`/tmdb${item.profile_path}`"
+        :src="`${item.profile_path}`"
         :alt="item.name"
         w-full h-full object-cover
       />
@@ -31,7 +31,7 @@ defineProps<{
       {{ item.name }}
     </div>
     <div op50>
-      {{ item.character || item.known_for_department }}
+      {{ item.known_for_department }}
     </div>
   </NuxtLink>
 </template>

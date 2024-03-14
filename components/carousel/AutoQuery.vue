@@ -5,7 +5,7 @@ const props = defineProps<{
   query: QueryItem
 }>()
 
-const item = await listMedia(props.query.type, props.query.query, 1)
+const item = await listMedia1(props.query.type, props.query.query, 1)
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const item = await listMedia(props.query.type, props.query.query, 1)
       </NuxtLink>
     </template>
     <MediaCard
-      v-for="i of item?.results || []"
+      v-for="i of item || []"
       :key="i.id"
       :item="i"
       :type="props.query.type"

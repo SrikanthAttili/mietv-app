@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { Episode, MediaType, Season } from '~/types'
+import type { Episode1, MediaType1, Season, Season1 } from '~/types'
 
 const props = defineProps<{
-  seasons: Season[]
-  mediaType: MediaType
+  seasons: Season1[]
+  mediaType: MediaType1
   itemId: string
 }>()
 console.log(props.seasons?.length + '##### ' + props.mediaType)
 const activeSeason = ref(props.seasons[0].season_number)
 
-const activeEpisodes: Ref<Episode[]> = ref([])
+const activeEpisodes: Ref<Episode1[]> = ref([])
 const activeEpisodesCount = computed(() => activeEpisodes.value?.length)
 
 onMounted(async () => {
@@ -34,7 +34,7 @@ async function getEpisodes() {
 
 <template>
   <!-- tv content STARTs here -->
-  <div v-if="mediaType === 'tv'" flex="~ col">
+  <div flex="~ col">
     <div text-xl>
       <!-- {{ $t('{numberOfSeasons} Seasons', { numberOfSeasons: item.seasons?.length || 0 }) }} -->
       <select

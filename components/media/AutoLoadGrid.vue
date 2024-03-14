@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Media, MediaType } from '~/types'
+import type { Media, Media1, MediaType1 } from '~/types'
 
 const props = withDefaults(
   defineProps<{
-    items: Media[]
-    type: MediaType
+    items: Media1[]
+    type: MediaType1
     fetch: (page: number) => Promise<void>
     count?: number
     blocking?: boolean

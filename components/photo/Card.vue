@@ -17,7 +17,7 @@ const props = defineProps<{
       width="400"
       height="600"
       format="webp"
-      :src="`/tmdb${props.item.file_path}`"
+      :src="`${props.item.file_path}`"
       alt="Photo"
       w-full h-full object-cover
     />

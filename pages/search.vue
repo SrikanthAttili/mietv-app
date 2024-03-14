@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Media } from '~/types'
+import type { Media1 } from '~/types'
 
 definePageMeta({
   pageTransition: false,
@@ -11,7 +11,7 @@ const input = ref((route.query.s || '').toString())
 const error = ref<unknown>()
 const count = ref<undefined | number>()
 
-const items = ref<Media[]>([])
+const items = ref<Media1[]>([])
 const currentSearch = ref(input.value)
 
 function search() {
@@ -28,7 +28,7 @@ async function fetch(page: number) {
   if (!currentSearch.value)
     return
   try {
-    const data = await searchShows(currentSearch.value, page)
+    const data = await searchShows1(currentSearch.value, page)
     count.value = data.total_results ?? count.value
     items.value.push(...data.results)
   }
@@ -82,7 +82,7 @@ watch(
       :items="items"
       :count="count"
       :blocking="false"
-      type="movie"
+      type="show"
     >
       <div>{{ $t('Search result for: {currentSearch}', { currentSearch }) }}</div>
     </MediaAutoLoadGrid>

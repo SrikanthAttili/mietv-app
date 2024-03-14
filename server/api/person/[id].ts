@@ -14,13 +14,14 @@ export default eventHandler(async (event) => {
   const client = await serverSupabaseClient<Database>(event)
   const { data, error } = await client
     .from('person')
-    .select('*') // Adjust columns as needed
+    .select('*, external_ids(linkedin_id, github_id)') // Adjust columns as needed
     .eq('id', id)
+    .limit(1)
 
   if (error) {
     console.error('Error fetching shows:', error.message)
     return null
   }
 
-  return data[0]
+  return data.length>0?data?.[0]:{}
 })

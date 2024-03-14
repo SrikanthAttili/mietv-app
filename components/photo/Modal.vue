@@ -43,7 +43,7 @@ useEventListener('keydown', (e) => {
     <NuxtImg
       :key="current.file_path"
       format="webp"
-      :src="`/tmdb${current.file_path}`"
+      :src="`${current.file_path}`"
       aria-hidden="true"
       max-w-full max-h-full object-contain
     />

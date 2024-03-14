@@ -1,9 +1,9 @@
 import { useSingleton } from './utils'
-import type { Episode, Image, Media, Video } from '~/types'
+import type { Episode, Episode1, Image, Media, Media1, Video } from '~/types'
 
-export function getTrailer(item: Media) {
-  const trailer = item.videos?.results?.find(video => video.type === 'Trailer')
-  return getVideoLink(trailer)
+export function getTrailer(item: Media1) {
+  const trailer = item.trailer_path
+  return trailer
 }
 
 export function getVideoLink(item?: Video) {
@@ -13,6 +13,15 @@ export function getVideoLink(item?: Video) {
 }
 
 export function getVideoLinkOfEpisode(item?: Episode) {
+  /*
+  if (!item?.video_key)
+    return null
+  return `https://www.youtube.com/embed/${item.video_key}?rel=0&showinfo=0&autoplay=0`
+  */
+  return `https://www.youtube.com/embed/n_MhKLhy3xs?rel=0&showinfo=0&autoplay=0`
+}
+
+export function getVideoLinkOfEpisode1(item?: Episode1) {
   /*
   if (!item?.video_key)
     return null

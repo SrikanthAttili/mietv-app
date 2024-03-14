@@ -31,5 +31,5 @@ export default eventHandler(async (event) => {
     return null
   }
 
-  return { libraries: data }
+  return data.map(item => item.show)
 })

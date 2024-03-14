@@ -17,7 +17,7 @@ export default eventHandler(async (event) => {
   const tagName = event.context.params?.category || ''
 
   const client = await serverSupabaseClient<Database>(event)
-  const { data, error } = await client
+  const { data, count, error } = await client
     .from('show_tags_junction')
     .select('show(*)') // Adjust columns as needed
     .eq('tag_name', decodeURIComponent(tagName))
@@ -29,5 +29,5 @@ export default eventHandler(async (event) => {
     return null
   }
 
-  return { libraries: data }
+  return data.map(item => item.show)
 })

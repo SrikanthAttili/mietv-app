@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Media } from '~/types'
+import type { Media, Media1 } from '~/types'
 import { formatTime } from '~/composables/utils'
 
 const props = withDefaults(defineProps<{
-  item: Media
+  item: Media1
 }>(), {
-  item: () => ({} as Media),
+  item: () => ({} as Media1),
 })
 
 const trailer = computed(() => getTrailer(props.item))
@@ -30,8 +30,8 @@ const mounted = useMounted()
         width="1220"
         height="659"
         format="webp"
-        :src="`/tmdb${props.item.backdrop_path}`"
-        :alt="props.item.title || props.item.name"
+        :src="`${props.item.backdrop_path}`"
+        :alt="props.item.title || props.item.title"
         h-full w-full object-cover
       />
     </div>
@@ -45,26 +45,8 @@ const mounted = useMounted()
       <Transition appear name="hero">
         <div v-show="mounted">
           <h1 mt-2 text-4xl lg:text-5xl line-clamp-2>
-            {{ props.item.title || props.item.name }}
+            {{ props.item.title || props.item.title }}
           </h1>
-          <div flex="~ row wrap" gap2 items-center mt4>
-            <StarsRate w-25 :value="props.item.vote_average" />
-            <div class="op50 hidden md:block">
-              {{ formatVote(props.item.vote_average) }}
-            </div>
-            <span class="op50 hidden md:block">·</span>
-            <div class="op50 hidden md:block">
-              {{ $t('{numberOfReviews} Reviews', { numberOfReviews: formatVote(props.item.vote_count) }) }}
-            </div>
-            <span op50>·</span>
-            <div v-if="props.item.release_date" op50>
-              {{ props.item.release_date.slice(0, 4) }}
-            </div>
-            <span op50>·</span>
-            <div v-if="props.item.runtime" op50>
-              {{ formatTime(props.item.runtime) }}
-            </div>
-          </div>
           <p class="mt-2 op80 leading-relaxed of-hidden line-clamp-3 md:line-clamp-5 text-xs md:text-base">
             {{ props.item.overview }}
           </p>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Person } from '~/types'
+import type { Person, Person1 } from '~/types'
 import { formatDate } from '~/composables/utils'
 
 const props = defineProps<{
-  item: Person
+  item: Person1
 }>()
 
-const externalIds = computed(() => ({ ...props.item.external_ids, homepage: props.item.homepage }))
+const externalIds = computed(() => ({ ...props.item.external_ids}))
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const externalIds = computed(() => ({ ...props.item.external_ids, homepage: prop
       width="400"
       height="600"
       format="webp"
-      :src="`/tmdb${props.item.profile_path}`"
+      :src="`${props.item.profile_path}`"
       :alt="props.item.name"
       block border="4 gray4/10" w-70 md:90 self-start mt-5 mx-auto
       transition duration-400 object-cover aspect="3/4"
@@ -32,7 +32,7 @@ const externalIds = computed(() => ({ ...props.item.external_ids, homepage: prop
           {{ $t('(no biography)') }}
         </div>
       </div>
-
+      <br>
       <div text-sm op80>
         <ul grid="~ cols-[max-content_1fr] gap3" items-center>
           <template v-if="props.item.known_for_department">
@@ -64,7 +64,7 @@ const externalIds = computed(() => ({ ...props.item.external_ids, homepage: prop
       </div>
 
       <div>
-        <ExternalLinks :links="externalIds" />
+        <ExternalLinks :links="externalIds"/>
       </div>
     </div>
   </div>

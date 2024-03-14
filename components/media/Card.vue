@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Media, MediaType } from '~/types'
+import type { Media, Media1, MediaType1 } from '~/types'
 
 defineProps<{
-  type: MediaType
-  item: Media
+  type: MediaType1
+  item: Media1
 }>()
 </script>
 
@@ -22,8 +22,8 @@ defineProps<{
         width="400"
         height="600"
         format="webp"
-        :src="`/tmdb${item.poster_path}`"
-        :alt="item.title || item.name"
+        :src="`${item.poster_path}`"
+        :alt="item.title"
         w-full h-full object-cover
         :style="{ 'view-transition-name': `item-${item.id}` }"
       />
@@ -32,13 +32,7 @@ defineProps<{
       </div>
     </div>
     <div mt-2>
-      {{ item.title || item.name }}
-    </div>
-    <div flex text-sm gap-2 items-center>
-      <StarsRate w-20 :value="item.vote_average" />
-      <div op60>
-        {{ formatVote(item.vote_average) }}
-      </div>
+      {{ item.title}}
     </div>
   </NuxtLink>
 </template>

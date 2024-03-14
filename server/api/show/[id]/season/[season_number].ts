@@ -14,7 +14,7 @@ export default eventHandler(async (event) => {
   )
 
   const client = await serverSupabaseClient<Database>(event)
-  const { data, error } = await client
+  const { data, count, error } = await client
     .from('episode')
     .select('*') // Adjust columns as needed
     .eq('season_number', season_number)
@@ -25,5 +25,5 @@ export default eventHandler(async (event) => {
     return null
   }
 
-  return { libraries: data }
+  return { episodes: data }
 })
