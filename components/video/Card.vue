@@ -30,7 +30,7 @@ function play() {
       hover="scale-102 z10"
     >
       <NuxtImg
-        :src="`${episode.still_path}`"
+        :src="`${episode.poster_path}`"
         width="400"
         height="225"
         format="webp"

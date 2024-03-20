@@ -149,7 +149,7 @@ export interface Episode1 {
   overview: string
   season_number: number
   show_id: number
-  still_path: string
+  poster_path: string
   vote_count: string
   crew: []
   video_link?: string
