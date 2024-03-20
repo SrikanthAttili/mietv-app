@@ -12,21 +12,11 @@ export function getVideoLink(item?: Video) {
   return `https://www.youtube.com/embed/${item.key}?rel=0&showinfo=0&autoplay=0`
 }
 
-export function getVideoLinkOfEpisode(item?: Episode) {
-  /*
-  if (!item?.video_key)
-    return null
-  return `https://www.youtube.com/embed/${item.video_key}?rel=0&showinfo=0&autoplay=0`
-  */
-  return `https://www.youtube.com/embed/n_MhKLhy3xs?rel=0&showinfo=0&autoplay=0`
-}
-
 export function getVideoLinkOfEpisode1(item?: Episode1) {
-  /*
-  if (!item?.video_key)
-    return null
-  return `https://www.youtube.com/embed/${item.video_key}?rel=0&showinfo=0&autoplay=0`
-  */
+  console.log('$$$$' + item?.video_link)
+  if (item?.video_link)
+    return item?.video_link
+  
   return `https://www.youtube.com/embed/n_MhKLhy3xs?rel=0&showinfo=0&autoplay=0`
 }
 

@@ -80,7 +80,7 @@ export function listMedia(type: MediaType, query: string, page: number): Promise
   return fetchTMDB(`${type}/${query}`, { page })
 }
 
-export function listMedia1(type: MediaType1, query: string, page: number): Promise<Media1[]> {
+export function listMedia1(type: MediaType1, query: string, page: number): Promise<PageResult<Media1>> {
   return fetchTMDB1(`${type}/category/${query}`, { page })
 }
 
@@ -110,6 +110,10 @@ export function getTvShowEpisodes(id: string, season: string) {
   return fetchTMDB(`tv/${id}/season/${season}`)
 }
 
+export function getTvShowEpisodes1(id: string, season: string) {
+  return fetchTMDB1(`show/${id}/season/${season}`)
+}
+
 /**
  * Get trending
  */
@@ -127,7 +131,7 @@ export function getMediaByGenre(media: string, genre: string, page = 1): Promise
   })
 }
 
-export function getMediaByGenre1(media1: string, genre: string, page = 1): Promise<Media1[]> {
+export function getMediaByGenre1(media1: string, genre: string, page = 1): Promise<PageResult<Media1>> {
   return fetchTMDB1(`${media1}/genre/${genre}`, {
     page,
   })

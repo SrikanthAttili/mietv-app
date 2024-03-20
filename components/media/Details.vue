@@ -8,7 +8,7 @@ const props = defineProps<{
 const route = useRoute()
 const mediaType = computed(() => (route.params.type as MediaType1 === 'show' ? 'Videos' : 'Episodes'))
 const tab = ref<'overview' | 'videos' | 'photos' | 'episodes'>('overview')
-console.log(props.type + '^^^^' + mediaType.value)
+console.log(JSON.stringify(props.item) + '^^^^' + mediaType.value)
 </script>
 
 <template>

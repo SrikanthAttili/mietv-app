@@ -28,7 +28,7 @@ async function fetch(page: number) {
   if (!currentSearch.value)
     return
   try {
-    const data = await searchShows1(currentSearch.value, page)
+    const data = await searchShows1(currentSearch.value, page)  
     count.value = data.total_results ?? count.value
     items.value.push(...data.results)
   }

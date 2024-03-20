@@ -152,7 +152,7 @@ export interface Episode1 {
   still_path: string
   vote_count: string
   crew: []
-  video_key?: string
+  video_link?: string
 }
 export interface Season {
   air_date: string

@@ -17,18 +17,31 @@ export default eventHandler(async (event) => {
   const pageSize = 20
   const offset = ((page || 1) - 1) * pageSize
 
+  const modifiedSearchString = decodeURIComponent(searchString)
+                              .trim()
+                              .split(/\s+/)
+                              .map(keyword => `'${keyword}'`)
+                              .join(' & ')
+                              .concat(':*')   //+':*'
+
+  console.log('$$$$'+modifiedSearchString)
   const client = await serverSupabaseClient<Database>(event)
+
   const { data, count, error } = await client
     .from('show')
-    .select('*', {count: 'planned'}) // Adjust columns as needed
-    .textSearch('fts_on_title', `'` + decodeURIComponent(searchString) + `'`)
+    .select('*', {count: 'exact'}) // Adjust columns as needed
+    .textSearch('title', `${modifiedSearchString}`)
     .range(offset, offset + pageSize - 1)
     .order('id')
 
+
+
   if (error) {
     console.error('Error fetching shows:', error.message)
-    return null
+    return { results : [], total_results : 0 }
   }
-
-  return { results : data, total_results : count }
+  if(count)
+    return { results : data, total_results : count }
+  
+  return { results : [], total_results : 0 }
 })

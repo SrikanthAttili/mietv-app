@@ -19,17 +19,18 @@ export default eventHandler(async (event) => {
   const offset = ((page || 1) - 1) * pageSize
 
   const client = await serverSupabaseClient<Database>(event)
-  const { data, error } = await client
+  const { data, count, error } = await client
     .from('show_tags_junction')
-    .select('show(*)') // Adjust columns as needed
+    .select('show(*)', {count: 'exact'}) // Adjust columns as needed
     .eq('tag_id', genreNumber)
     .range(offset, offset + pageSize - 1)
     .order('id')
 
   if (error) {
     console.error('Error fetching shows:', error.message)
-    return null
+    return {results : [], total_results : 0}
   }
-
-  return data.map(item => item.show)
+  if(count)
+    return {results : data.map(item => item.show) , total_results : count} 
+    return {results : [], total_results : 0}
 })

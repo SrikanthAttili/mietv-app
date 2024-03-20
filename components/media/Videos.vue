@@ -5,7 +5,7 @@ const props = defineProps<{
   item: Media1
   mediaType: MediaType1
 }>()
-// console.log(props.item.seasons?.length + '##### ' + props.mediaType)
+console.log('I am in media video '+ JSON.stringify(props.item.seasons))
 </script>
 
 <template>

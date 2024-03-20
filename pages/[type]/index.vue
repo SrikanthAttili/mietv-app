@@ -25,7 +25,7 @@ const AsyncWrapper = defineComponent(async (_, ctx) => {
   const list = await listMedia1(type.value, queries.value?.[0].query, 1)
   if (!list)
     return () => {}
-  const item = await getMedia1(type.value, list?.[0].id)
+  const item = await getMedia1(type.value, list.results?.[0].id)
   return () => ctx.slots?.default?.({ item })
 })
 </script>

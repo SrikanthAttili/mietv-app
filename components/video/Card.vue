@@ -7,12 +7,15 @@ const props = defineProps<{
 }>()
 const route = useRoute()
 const type = computed(() => route.params.type as MediaType1 || 'movie')
+onMounted(async () =>{
+  console.log('single episode from video card %%%% ' + JSON.stringify(props.episode?.video_link))
+}
+)
 
 const showModal = useIframeModal()
 function play() {
   //if (type.value === 'movie')
     // return showModal(getVideoLink(props.item)!)
-
     return showModal(getVideoLinkOfEpisode1(props.episode)!)
 }
 </script>

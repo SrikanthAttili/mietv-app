@@ -14,13 +14,13 @@ export default eventHandler(async (event) => {
   const client = await serverSupabaseClient<Database>(event)
   const { data, error } = await client
     .from('show')
-    .select('*, season (*), genres:show_tags_junction(id:tag_id, name:tag_name), credits:person(*)') // Adjust columns as needed
+    .select('*, seasons:season (*), genres:show_tags_junction(id:tag_id, name:tag_name), credits:person(*)') // Adjust columns as needed
     .eq('id', id)
     .limit(1)
 
   if (error) {
     console.error('Error fetching shows:', error.message)
-    return null
+    return {}
   }
 
   return data?.[0]
