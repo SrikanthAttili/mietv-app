@@ -7,7 +7,7 @@ useHead({
   },
   charset: 'utf-8',
   title: 'Nuxt Movies',
-  titleTemplate: title => title !== 'Nuxt Movies' ? `${title} · Nuxt Movies` : title,
+  titleTemplate: title => title !== 'MieTV' ? `${title} · Nuxt Movies` : title,
   meta: [
     { name: 'description', content: 'A TMDB client built with Nuxt Image to show the potential of it ✨' },
     { property: 'og:image', content: 'https://movies.nuxt.space/social-card.png' },
@@ -35,7 +35,7 @@ useHead({
     <div id="app-scroller" of-x-hidden of-y-auto relative>
       <NuxtPage />
     </div>
-    <NavBar lg:order-first />
+    <NavBar lg:order-first sm:order-first />
     <IframeModal />
     <PhotoModal />
   </div>

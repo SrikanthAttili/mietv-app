@@ -9,9 +9,7 @@ export interface Media1 {
   media_type?: MediaType1
   genres?: Genre[]
   seasons?: Season1[]
-  credits?: {
-    cast: Person1[]
-  }
+  credits?: Person1[]
   trailer_path?: string
   backdrop_path?: string
   overview?: string

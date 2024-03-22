@@ -9,12 +9,12 @@ defineProps<{
 
 <template>
   <MediaInfo :item="item" :type="type" />
-  <CarouselBase v-if="item.credits?.cast?.length">
+  <CarouselBase v-if="item.credits?.length">
     <template #title>
       {{ $t('Cast') }}
     </template>
     <PersonCard
-      v-for="i of item.credits?.cast"
+      v-for="i of item.credits"
       :key="i.id"
       :item="i"
       flex-1 w-50
