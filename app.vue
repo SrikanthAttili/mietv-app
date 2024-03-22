@@ -6,20 +6,20 @@ useHead({
     lang: 'en',
   },
   charset: 'utf-8',
-  title: 'Nuxt Movies',
-  titleTemplate: title => title !== 'MieTV' ? `${title} · Nuxt Movies` : title,
+  title: 'MieTV',
+  titleTemplate: title => title !== 'MieTV' ? `${title} · MieTV` : title,
   meta: [
-    { name: 'description', content: 'A TMDB client built with Nuxt Image to show the potential of it ✨' },
-    { property: 'og:image', content: 'https://movies.nuxt.space/social-card.png' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:site', content: '@nuxt_js' },
-    { name: 'twitter:creator', content: '@nuxt_js' },
+    { name: 'description', content: 'MieTV is an OTT platform suppliment the kids education and well being ✨' },
+    { property: 'og:image', content: '/movies.kids.webp' },
+    { name: 'twitter:card', content: '/movies.kids.webp' },
+    { name: 'twitter:site', content: '/movies.kids.webp' },
+    { name: 'twitter:creator', content: '/movies.kids.webp' },
   ],
   link: [
     {
       rel: 'icon',
       type: 'image/webp',
-      href: '/movies.webp',
+      href: '/movies.kids.webp',
     },
   ],
 })

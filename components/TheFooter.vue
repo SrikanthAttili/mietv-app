@@ -1,45 +1,35 @@
 <template>
-  <footer p="y15 x15" flex="~ col gap4">
-    <div flex="~ row gap2" items-center my2>
-      <img src="/movies-sm.webp" width="25" height="25" alt="Logo">
-      <div text-xl>
-        Nuxt Movies
-      </div>
+  <!--grid="~ cols-minmax-10rem lg:cols-minmax-15rem" gap4 p8-->
+
+  <footer p="y15 x15" flex="~ col gap5">
+    <div op50 text-sm items-center>
+      <p>&copy; {{ new Date().getFullYear() }} Surya Srikanth Attili. All rights reserved.</p>
     </div>
-    <div flex="~ row gap2" items-center>
-      <div op50 text-sm>
-        Made with
-      </div>
-      <a href="https://nuxt.com/" target="_blank" title="Nuxt 3">
-        <IconNuxt3 h5 />
+    <div grid="~ cols-minmax-10rem" gap10 items-center>
+      <a text-sm target="_blank" href="/legal/privacy" title="Privacy Policy" rel="noopener" n-link-text>
+          Privacy policy
+      </a>
+      <a text-sm target="_blank" href="/legal/termsofuse" title="Privacy Policy" rel="noopener" n-link-text>
+          Terms and Conditions
+      </a>
+      <a text-sm target="_blank" href="/legal/cookie-policy" title="Privacy Policy" rel="noopener" n-link-text>
+        Cookie Policy
+      </a>
+      <a text-sm target="_blank" href="/legal/corporate-information" title="Privacy Policy" rel="noopener" n-link-text>
+          Corporate Information
       </a>
     </div>
-    <div flex="~ row gap2" items-center>
-      <p text-true-gray:90 text-sm>
-        Data provided by&nbsp;
-        <a op100 target="_blank" href="https://www.themoviedb.org/" title="The Movie Database" rel="noopener" n-link-text>
-          <IconTMDB inline h4 />
-        </a>
-      </p>
-    </div>
-    <div flex="~ row gap2" items-center>
-      <p text-true-gray:90 text-sm>
-        This project uses the TMDB API but is not endorsed or certified by TMDB.
-      </p>
-    </div>
-    <div flex gap4 items-center>
+    
+    <div flex="~ row gap15" items-center>
       <ExternalLinks
         :links="{
           twitter_id: 'nuxt_js',
           github_id: 'nuxt/movies',
         }"
       >
-        <a href="https://vercel.com" rel="noopener" target="_blank" aria-label="go to vercel">
-          <IconVercel alt="Vercel" />
-        </a>
       </ExternalLinks>
-
-      <LanguageSwitcher />
+      <LanguageSwitcher/>
     </div>
+
   </footer>
 </template>
