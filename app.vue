@@ -9,7 +9,7 @@ useHead({
   title: 'MieTV',
   titleTemplate: title => title !== 'MieTV' ? `${title} · MieTV` : title,
   meta: [
-    { name: 'description', content: 'MieTV is an OTT platform suppliment the kids education and well being ✨' },
+    { name: 'description', content: 'MieTV is an OTT platform dedicated for your kids education and their well being ✨' },
     { property: 'og:image', content: '/movies.kids.webp' },
     { name: 'twitter:card', content: '/movies.kids.webp' },
     { name: 'twitter:site', content: '/movies.kids.webp' },

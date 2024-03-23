@@ -17,8 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div flex gap2 items-center mt-3>
-    Language:
+  <div flex gap2 items-center>
     <select id="langSwitcher" rounded-md text-sm p-1 @change="updateLocale">
       <option v-for="loc in availableLocales" :key="loc.code" :value="loc.code" p-1>
         {{ loc.name }}

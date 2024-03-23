@@ -17,6 +17,14 @@ const AsyncWrapper = defineComponent({
     return () => ctx.slots?.default?.({ item })
   },
 })
+useHead({
+  title: 'MieTV',
+titleTemplate: title => title !== 'MieTV' ? `${title} · MieTV` : title,
+meta: [
+  { name: 'description', content: 'MieTV is an OTT platform that dedicated for your kids education and their well being ✨' },
+  { property: 'og:image', content: '/movies.original.png' }
+]
+})
 </script>
 
 <template>
