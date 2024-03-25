@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Episode1, MediaType1, Season, Season1 } from '~/types'
+import type { Episode1, MediaType1, Season1 } from '~/types'
 
 const props = defineProps<{
   seasons: Season1[]

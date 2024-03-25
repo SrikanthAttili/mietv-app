@@ -86,7 +86,7 @@ watch(
     >
       <div>{{ $t('Search result for: {currentSearch}', { currentSearch }) }}</div>
     </MediaAutoLoadGrid>
-    <div v-else text-4xl p10 font-100 op50 text-center>
+    <div v-else text-4xl p10 font-sans op50 text-center>
       {{ $t('Type something to search...') }}
     </div>
   </div>

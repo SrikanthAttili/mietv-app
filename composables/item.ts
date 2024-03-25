@@ -1,5 +1,5 @@
 import { useSingleton } from './utils'
-import type { Episode, Episode1, Image, Media, Media1, Video } from '~/types'
+import type { Episode1, Image, Media1, Video } from '~/types'
 
 export function getTrailer(item: Media1) {
   const trailer = item.trailer_path
@@ -13,7 +13,7 @@ export function getVideoLink(item?: Video) {
 }
 
 export function getVideoLinkOfEpisode1(item?: Episode1) {
-  console.log('$$$$' + item?.video_link)
+  // console.log('$$$$' + item?.video_link)
   if (item?.video_link)
     return item?.video_link
   

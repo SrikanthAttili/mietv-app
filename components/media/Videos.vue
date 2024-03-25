@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { Media, Media1, MediaType1, Season } from '~/types'
+import type { Media1, MediaType1 } from '~/types'
 
 const props = defineProps<{
   item: Media1
   mediaType: MediaType1
 }>()
-console.log('I am in media video '+ JSON.stringify(props.item.seasons))
+// console.log('I am in media video '+ JSON.stringify(props.item.seasons))
 </script>
 
 <template>

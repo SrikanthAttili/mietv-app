@@ -5,7 +5,7 @@ import { QUERY_LIST } from '~/constants/lists'
 definePageMeta({
   key: route => route.fullPath,
   validate: ({ params }) => {
-    return ['movie', 'tv', 'show'].includes(params.type as MediaType1)
+    return ['show'].includes(params.type as MediaType1)
   },
 })
 
@@ -13,7 +13,7 @@ const route = useRoute()
 const type = computed(() => route.params.type as MediaType1 || 'show')
 
 useHead({
-  title: type.value === 'show' ? 'Shows' : 'TV Shows',
+  title: type.value === 'show' ? 'Shows' : 'MieTV Shows',
 })
 
 const queries = computed(() => QUERY_LIST[type.value as MediaType1])

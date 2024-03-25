@@ -6,12 +6,14 @@
     border="t lg:r base"
     bg-black
   >
+  <!--
     <NuxtLink v-slot="{ isActive }" to="/" title="Home">
       <div
         text-2xl
         :class="isActive ? 'i-ph-house-fill text-primary' : 'i-ph-house'"
       />
     </NuxtLink>
+  -->
     <NuxtLink v-slot="{ isActive }" to="/show" title="Study Shows">
       <div
         text-2xl

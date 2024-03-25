@@ -1,3 +1,3 @@
 export default eventHandler(() => {
-  return 'Mietv Proxy'
+  return 'Mietv'
 })

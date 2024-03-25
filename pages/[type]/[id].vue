@@ -5,7 +5,7 @@ import type { MediaType1 } from '~/types'
 definePageMeta({
   key: route => route.fullPath,
   validate: ({ params }) => {
-    return ['movie', 'tv', 'show'].includes(params.type as MediaType1)
+    return ['show'].includes(params.type as MediaType1)
   },
 })
 
@@ -18,7 +18,7 @@ const [item, recommendations] = await Promise.all([
   getRecommendations1(type.value, id.value),
 ])
 const $img = useImage()
-console.log(`$$$$$ ${getMedia1}`)
+// console.log(`$$$$$ ${getMedia1}`)
 useHead({
   title: item.title,
   meta: [
