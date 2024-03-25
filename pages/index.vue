@@ -1,44 +1,8 @@
 <script setup lang="ts">
-import type { MediaType1 } from '~/types'
-import { QUERY_LIST } from '~/constants/lists'
 
-const route = useRoute()
-const type = computed(() => route.params.type as MediaType1 || 'show')
-
-const queries = computed(() => 
-  QUERY_LIST.show,
-)
-
-const AsyncWrapper = defineComponent({
-  name: 'AsyncWrapper',
-  async setup(_, ctx) {
-    const list = await listMedia1(type.value, queries.value[0].query, 1)
-    const item = await getMedia1(type.value, list.results?.[0].id)
-    return () => ctx.slots?.default?.({ item })
-  },
-})
-useHead({
-  title: 'MieTV',
-titleTemplate: title => title !== 'MieTV' ? `${title} · MieTV` : title,
-meta: [
-  { name: 'description', content: 'MieTV is an OTT platform for your kids education and their well being ✨' },
-  { property: 'og:image', content: '/movies.original.png' }
-]
-})
 </script>
 
 <template>
-  <div>
-    <AsyncWrapper v-slot="{ item }">
-      <NuxtLink :to="`/${type}/${item.id}`">
-        <MediaHero :item="item" />
-      </NuxtLink>
-    </AsyncWrapper>
-    <CarouselAutoQuery
-      v-for="query of queries"
-      :key="query.type + query.query"
-      :query="query"
-    />
+    MieTV Home Page
     <TheFooter />
-  </div>
 </template>

@@ -6,7 +6,7 @@ const props = defineProps<{
   mediaType: MediaType1
   itemId: string
 }>()
-console.log(props.seasons?.length + '##### ' + props.mediaType)
+// console.log(props.seasons?.length + '##### ' + props.mediaType)
 const activeSeason = ref(props.seasons[0].season_number)
 
 const activeEpisodes: Ref<Episode1[]> = ref([])
@@ -16,7 +16,7 @@ onMounted(async () => {
   try {
     const response = await getTvShowEpisodes1(props.itemId, activeSeason.value.toString())
     activeEpisodes.value = response.episodes
-    console.log('first seasons episodes' + JSON.stringify(activeEpisodes.value))
+    // console.log('first seasons episodes' + JSON.stringify(activeEpisodes.value))
   }
   catch (error) {
     console.error('Error fetching episodes:', error)
@@ -24,11 +24,11 @@ onMounted(async () => {
 })
 
 async function getEpisodes() {
-  console.log('I am in get episode, just about to make an api call' + activeSeason.value.toString())
+  // console.log('I am in get episode, just about to make an api call' + activeSeason.value.toString())
   const SeasonWithEpisodes: Season1 = await getTvShowEpisodes1(props.itemId, activeSeason.value.toString())
   // console.log('$$$$$ episode count ' + JSON.stringify(SeasonWithEpisodes.episodes))
   activeEpisodes.value = SeasonWithEpisodes.episodes || []
-  console.log('$$$ ' + toRaw(activeEpisodes))
+  // console.log('$$$ ' + toRaw(activeEpisodes))
 }
 </script>
 

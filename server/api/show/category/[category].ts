@@ -22,7 +22,7 @@ export default eventHandler(async (event) => {
                               .map(keyword => `'${keyword}'`)
                               .join(' & ')   //+':*'
 
-  console.log('$$$$'+modifiedSearchString)
+  // console.log('$$$$'+modifiedSearchString)
   const client = await serverSupabaseClient<Database>(event)
 
   const { data, count, error } = await client

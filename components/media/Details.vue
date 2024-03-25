@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Media, Media1, MediaType1 } from '~/types'
+import type { Media1, MediaType1 } from '~/types'
 
 const props = defineProps<{
   item: Media1
@@ -8,7 +8,7 @@ const props = defineProps<{
 const route = useRoute()
 const mediaType = computed(() => (route.params.type as MediaType1 === 'show' ? 'Videos' : 'Episodes'))
 const tab = ref<'overview' | 'videos' | 'photos' | 'episodes'>('overview')
-console.log(JSON.stringify(props.item) + '^^^^' + mediaType.value)
+// console.log(JSON.stringify(props.item) + '^^^^' + mediaType.value)
 </script>
 
 <template>
