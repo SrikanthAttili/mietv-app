@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/supabase',
     'nitro-cloudflare-dev',
+    '@nuxt/ui',
   ],
   experimental: {
     viewTransition: false,
@@ -98,4 +99,7 @@ export default defineNuxtConfig({
     langDir: 'internationalization',
     defaultLocale: 'en',
   },
+  colorMode: {
+    preference: 'dark'
+  }
 })

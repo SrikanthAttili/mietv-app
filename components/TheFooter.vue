@@ -1,5 +1,6 @@
 <template>
   <footer p="y15 x15" flex="~ col gap5">
+    <UDivider op20></UDivider>
     <div op50 text-sm items-center>
       <p>© {{ new Date().getFullYear() }} Surya Srikanth Attili. All rights reserved.</p>
     </div>

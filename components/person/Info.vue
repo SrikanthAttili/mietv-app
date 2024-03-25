@@ -63,7 +63,7 @@ const externalIds = computed(() => ({ ...props.item.external_ids}))
         </ul>
       </div>
 
-      <div>
+      <div py-10>
         <ExternalLinks :links="externalIds"/>
       </div>
     </div>

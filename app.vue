@@ -37,7 +37,6 @@ useHead({
     </div>
     <NavBar lg:order-first sm:order-first />
     <IframeModal />
-    <PhotoModal />
   </div>
 </template>
 
