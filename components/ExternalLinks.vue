@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ExternalIds, External_ids } from '~/types'
+import type { ExternalIds, External_ids } from '~/types/objects'
 
 const props = defineProps<{
   links: ExternalIds

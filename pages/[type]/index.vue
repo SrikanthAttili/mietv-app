@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MediaType1 } from '~/types'
+import type { MediaType1 } from '~/types/objects'
 import { QUERY_LIST } from '~/constants/lists'
 
 definePageMeta({

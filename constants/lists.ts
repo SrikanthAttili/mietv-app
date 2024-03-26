@@ -1,4 +1,4 @@
-import type { QueryItem } from '~/types'
+import type { QueryItem } from '~/types/objects'
 
 export const QUERY_LIST = {
   show: <QueryItem[]>([

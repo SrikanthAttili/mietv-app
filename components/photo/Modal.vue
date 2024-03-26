@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Image } from '~/types'
+import type { Image } from '~/types/objects'
 
 const images = ref<Image[] | null>(null)
 const index = ref(0)

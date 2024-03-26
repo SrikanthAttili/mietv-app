@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { QueryItem } from '~/types'
+import type { QueryItem } from '~/types/objects'
 
 const props = defineProps<{
   query: QueryItem

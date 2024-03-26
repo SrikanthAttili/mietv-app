@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Media1 } from '~/types'
+import type { Media1 } from '~/types/objects'
 
 definePageMeta({
   pageTransition: false,

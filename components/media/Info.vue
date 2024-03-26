@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Media1, MediaType1 } from '~/types'
+import type { Media1, MediaType1 } from '~/types/objects'
 import { formatLang } from '~/composables/utils'
 
 const props = withDefaults(defineProps<{

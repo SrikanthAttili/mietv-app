@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Episode, Episode1, MediaType1, Video } from '~/types'
+import type { Episode, Episode1, MediaType1, Video } from '~/types/objects'
 
 const props = defineProps<{
   item?: Video

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Person1 } from '~/types'
+import type { Person1 } from '~/types/objects'
 
 defineProps<{
   item: Person1

@@ -1,5 +1,5 @@
 import { useSingleton } from './utils'
-import type { Episode1, Image, Media1, Video } from '~/types'
+import type { Episode1, Image, Media1, Video } from '~/types/objects'
 
 export function getTrailer(item: Media1) {
   const trailer = item.trailer_path

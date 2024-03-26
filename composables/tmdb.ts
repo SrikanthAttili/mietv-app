@@ -1,6 +1,6 @@
 import { LRUCache } from 'lru-cache'
 import { hash as ohash } from 'ohash'
-import type { Media1, MediaType1, PageResult, Person1 } from '../types'
+import type { Media1, MediaType1, PageResult, Person1 } from '~/types/objects'
 
 const apiBaseUrl = '/api'
 // const apiBaseUrl = 'https://movies-proxy.vercel.app'

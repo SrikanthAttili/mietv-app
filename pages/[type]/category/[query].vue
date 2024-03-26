@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Media, Media1, MediaType1 } from '~/types'
+import type { Media1, MediaType1 } from '~/types/objects'
 
 const route = useRoute()
 const query = computed(() => route.params.query as string)

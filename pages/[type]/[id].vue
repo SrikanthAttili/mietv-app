@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getRecommendations1 } from '~/composables/tmdb';
-import type { MediaType1 } from '~/types'
+import type { MediaType1 } from '~/types/objects'
 
 definePageMeta({
   key: route => route.fullPath,
