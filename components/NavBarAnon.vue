@@ -9,8 +9,8 @@
       <img src="/movies.png" alt="Logo" class="h-8 w-auto">
     </div>
 	</NuxtLink>
-	
-	<div flex items-center gap10>
+  
+	<div flex items-center gap5>
     <NuxtLink v-slot="{ isActive }" to="/show" title="Study Shows">
       <div
         text-2xl
@@ -27,8 +27,8 @@
 	
     <!-- Login/Sign-up buttons (rightmost) -->
     <div flex items-center gap5>
-      <UButton to="/user/login">Login</UButton>
-      <UButton to="/user/signup">Sign up</UButton>
+      <UButton>Login</UButton>
+      <UButton>Sign up</UButton>
     </div>
 	
   </div>

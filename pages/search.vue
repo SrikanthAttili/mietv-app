@@ -67,7 +67,7 @@ watch(
       >
     </div>
     <div v-if="error" p8 flex flex-col gap-3 items-start>
-      <h1 text-4xl text-red>
+      <h1 text-xl text-red>
         {{ $t('Error occurred on fetching') }}
       </h1>
       <pre py2>{{ error }}</pre>
@@ -84,7 +84,7 @@ watch(
       :blocking="false"
       type="show"
     >
-      <div>{{ $t('Search result for: {currentSearch}', { currentSearch }) }}</div>
+      <div text-xl>{{ $t('Search result for: {currentSearch}', { currentSearch }) }}</div>
     </MediaAutoLoadGrid>
     <div v-else text-xl p10 font-sans op50 text-center>
       {{ $t('Search for Shows and Videos') }}

@@ -29,13 +29,13 @@ useHead({
   <NuxtLoadingIndicator />
   <div
     h-full w-full font-sans
-    grid="~ lt-lg:rows-[max-content_1fr] lg:cols-[max-content_1fr]"
+    grid="~ rows-[max-content_1fr]"
     of-hidden view-transition-app transition duration-0
   >
     <div id="app-scroller" of-x-hidden of-y-auto relative>
       <NuxtPage />
     </div>
-    <NavBar order-first op50/>
+    <NavBar order-first/>
     <IframeModal />
   </div>
 </template>

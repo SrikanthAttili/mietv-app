@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl,
+      baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     },
     tmdb: {
       apiKey: process.env.TMDB_API_KEY || '',

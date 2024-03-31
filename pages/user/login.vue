@@ -2,6 +2,18 @@
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
 
+const user = useSupabaseUser()
+const { auth } = useSupabaseClient()
+
+const redirectTo = `${useRuntimeConfig().public.baseUrl}/confirm`
+const form = reactive({ email: 'mail@example.com', password: 'password' })
+
+watchEffect(() => {
+  if (user.value) {
+    navigateTo('/show')
+  }
+})
+
 const schema = z.object({
   email: z.string().email('Invalid email'),
   password: z.string().min(8, 'Must be at least 8 characters')
@@ -9,13 +21,36 @@ const schema = z.object({
 
 type Schema = z.output<typeof schema>
 
-  async function onSubmit (event: FormSubmitEvent<Schema>) {
+async function onSubmit (event: FormSubmitEvent<Schema>) {
   // Do something with data
-  console.log('###' + event.data)
+  const { data, error } = await auth.signInWithPassword({
+    email: event.data.email,
+    password: event.data.password,
+  })
+  console.log('data :: '+JSON.stringify(data))
+  console.log('error :: '+JSON.stringify(error))
+}
+const signOut = async () => {
+  const { error } = await auth.signOut()
+  if (error) console.log(error)
 }
 
 
-const form = reactive({ email: 'mail@example.com', password: 'password' })
+auth.onAuthStateChange((event, session) => {
+  if (event === 'SIGNED_OUT') {
+    console.log('SIGNED_OUT', session)
+
+const storageArray = [window.localStorage, window.sessionStorage]
+storageArray.forEach((storage: Storage | null) => {
+  if (storage) {
+    Object.keys(storage).forEach((key) => {
+      storage.removeItem(key)
+    });
+  }
+})
+}
+})
+
 </script>
 
 <template>
