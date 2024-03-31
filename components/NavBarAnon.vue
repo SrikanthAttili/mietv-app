@@ -9,26 +9,14 @@
       <img src="/movies.png" alt="Logo" class="h-8 w-auto">
     </div>
 	</NuxtLink>
-  
-	<div flex items-center gap5>
-    <NuxtLink v-slot="{ isActive }" to="/show" title="Study Shows">
-      <div
-        text-2xl
-        :class="isActive ? 'i-ph-television-simple-fill text-primary' : 'i-ph-television-simple'"
-      />
-    </NuxtLink>
-    <NuxtLink v-slot="{ isActive }" to="/search" title="Search">
-      <div
-        text-2xl
-        :class="isActive ? 'i-ph-magnifying-glass-fill text-primary' : 'i-ph-magnifying-glass'"
-      />
-    </NuxtLink>
+	
+	<div flex items-center gap10>
 	</div>
 	
     <!-- Login/Sign-up buttons (rightmost) -->
-    <div flex items-center gap5>
-      <UButton>Login</UButton>
-      <UButton>Sign up</UButton>
+    <div flex items-center gap5 >
+      <UButton to="/user/login">Login</UButton>
+      <UButton to="/user/signup">Sign up</UButton>
     </div>
 	
   </div>

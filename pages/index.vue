@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import type { MediaType1 } from '~/types/objects'
-import { QUERY_LIST } from '~/constants/lists'
 const imgString = 'mie_tv/telugu/poster_db/homepage-wallpaper.jpg'
-const mounted = useMounted()
 const items = [{
     label: 'What is MieTV?',
     content: 'MieTV(pronounced as my.T.V) is a streaming service that offers a wide variety of Study series or Educational shows for Kids, Students, Job aspirants. You can watch as much as you want, whenever you want without a single Ad – Everything ranging from Kindergarten(KG) to Post Graduation(PG) for one low monthly price. There\'s always something new to discover and new Study content is added every week!'
@@ -40,7 +37,7 @@ const items = [{
         display="flex" justify-center items-center 
       >
 
-        <div v-show="mounted" p="x15 y15" class="lg:text-5xl lt-lg:text-xl text-center width-8/12" >
+        <div p="x15 y15" class="lg:text-5xl lt-lg:text-xl text-center width-8/12" >
             Unlimited Study Shows. Watch anywhere. <br>Cancel anytime<br><br>
             <p class="lg:text-3xl lt-lg:text-lg text-center width-8/12">One subscription fee for all the courses across the platform from<br> class 1 to class 10</p>
         </div>

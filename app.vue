@@ -1,5 +1,6 @@
 <script setup>
 import '@unocss/reset/tailwind.css'
+const user = useSupabaseUser()
 
 useHead({
   htmlAttrs: {
@@ -22,6 +23,16 @@ useHead({
       href: '/movies.kids.webp',
     },
   ],
+
+})
+const isLoggedIn = ref()
+watchEffect(() => {
+  if (user.value) {
+    isLoggedIn.value = true
+  }
+  else{
+    isLoggedIn.value = false
+  }
 })
 </script>
 
@@ -35,7 +46,12 @@ useHead({
     <div id="app-scroller" of-x-hidden of-y-auto relative>
       <NuxtPage />
     </div>
-    <NavBar order-first/>
+
+    <ClientOnly>
+      <NavBar v-if="isLoggedIn" order-first/>
+      <NavBarAnon v-else order-first/>
+    </ClientOnly>
+    
     <IframeModal />
   </div>
 </template>

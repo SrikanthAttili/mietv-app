@@ -26,9 +26,8 @@
 	</div>
 	
     <!-- Login/Sign-up buttons (rightmost) -->
-    <div flex items-center gap5>
-      <UButton to="/user/login">Login</UButton>
-      <UButton to="/user/signup">Sign up</UButton>
+    <div flex items-center gap5 lt-sm:px5>
+      <UserProfile/>
     </div>
 	
   </div>

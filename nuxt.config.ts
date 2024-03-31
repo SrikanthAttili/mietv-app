@@ -62,10 +62,12 @@ export default defineNuxtConfig({
     },
   },
   supabase: {
-    redirect: false,
     redirectOptions: {
       login: '/',
-      callback: '/confirm',
+      callback: '/user/confirm',
+      include: undefined,
+      exclude: ['/user/*','/legal/*', '/'],
+      cookieRedirect: false,
     },
   },
   nitro: {
