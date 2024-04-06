@@ -7,7 +7,7 @@ const apiBaseUrl = '/api'
 
 const promiseCache = new LRUCache<string, any>({
   max: 500,
-  ttl: 2000 * 60 * 60, // 2 hour
+  ttl: 24000 * 60 * 60, // 24 hour
 })
 
 async function _fetchTMDB1(url: string, params: Record<string, string | number | boolean | undefined> = {}) {
@@ -21,12 +21,20 @@ async function _fetchTMDB1(url: string, params: Record<string, string | number |
   })
 }
 
+// need to fix this by excluding the video generation link
+// because a stale video link could be server from the hash
+// we need to verify if the user is a valid subscriber or not
+ 
 export function fetchTMDB1(url: string, params: Record<string, string | number | boolean | undefined> = {}): Promise<any> {
   const hash = ohash([url, params])
   const state = useState<any>(hash, () => null)
-  if (state.value)
+  console.log(hash+'$$$$'+JSON.stringify(useState<any>(hash).value))
+  if (state.value){
+    console.log('value is returned from LRU cache!!!'+JSON.stringify(state.value))
     return Promise.resolve(state.value)
+  }
   if (!promiseCache.has(hash)) {
+    console.log('I am in promise cache')
     promiseCache.set(
       hash,
       _fetchTMDB1(url, params)

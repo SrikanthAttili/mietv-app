@@ -72,9 +72,9 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      '/**': { isr: true, cors: true, swr: true, cache: { maxAge: 60 * 60 } },
-      '/api/**': { isr: true, swr: true, cache: { maxAge: 60 * 60 } },
-      "/api/show/**": { isr: true, cache: { maxAge: 60 * 60 }},
+      '/**': { isr: true, cors: true, swr: true },
+      "/api/show/**": { isr: true, swr: true, cache: { maxAge: 24 * 60 * 60 } },
+      "/api/person/**": { isr: true, swr: true, cache: { maxAge: 24 * 60 * 60 } },
     },
     prerender: {
       autoSubfolderIndex: false,
