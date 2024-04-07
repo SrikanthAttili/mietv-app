@@ -14,7 +14,7 @@ const props = defineProps<{
   <div flex="~ col" px10 py4 gap6>
     <div v-if="item.seasons">
       <!-- {{ $t('{numberOfSeasons} Seasons', { numberOfSeasons: item.seasons?.length || 0 }) }} -->
-      <EpisodeCard :seasons="item.seasons" :media-type="mediaType" :item-id="`${item.id}`" />
+      <EpisodeCard v-if="item?.seasons?.length > 0" :seasons="item.seasons" :media-type="mediaType" :item-id="`${item.id}`" />
     </div>
     <div v-else op50>
       Currently there are no seasons published for this show.
