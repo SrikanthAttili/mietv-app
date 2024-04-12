@@ -9,7 +9,9 @@
     "preview": "npm run build && wrangler pages dev ./dist",
     "postinstall": "nuxt prepare",
     "deploy": "npm run build && wrangler pages deploy ./dist",
-    "build-cf-types": "wrangler types"
+    "build-cf-types": "wrangler types",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "nuxt": "^3.10.3",
@@ -32,6 +34,7 @@
     "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/i18n": "^8.1.1",
     "@nuxtjs/supabase": "^1.1.6",
+    "@nuxtjs/turnstile": "^0.7.1",
     "@unocss/nuxt": "^0.58.5",
     "@vueuse/nuxt": "^10.9.0",
     "eslint": "^8.57.0",

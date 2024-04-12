@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     'nitro-cloudflare-dev',
     '@nuxt/ui',
+    '@nuxtjs/turnstile',
   ],
   experimental: {
     viewTransition: false,
@@ -32,6 +33,11 @@ export default defineNuxtConfig({
     supabase: {
       url: process.env.SUPABASE_URL || '',
       key: process.env.SUPABASE_KEY || '',
+    },
+    turnstile: {
+      // This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
+      // environment variable.
+      secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY || '',
     },
   },
   devtools: {
@@ -66,15 +72,15 @@ export default defineNuxtConfig({
       login: '/',
       callback: '/user/confirm',
       include: undefined,
-      exclude: ['/user/*','/legal/*', '/'],
+      exclude: ['/user/*', '/legal/*', '/'],
       cookieRedirect: false,
     },
   },
   nitro: {
     routeRules: {
       '/**': { isr: true, cors: true },
-      "/api/show/**": { isr: true, swr: true, cache: { maxAge: 24 * 60 * 60 } },
-      "/api/person/**": { isr: true, swr: true, cache: { maxAge: 24 * 60 * 60 } },
+      '/api/show/**': { isr: true, swr: true, cache: { maxAge: 24 * 60 * 60 } },
+      '/api/person/**': { isr: true, swr: true, cache: { maxAge: 24 * 60 * 60 } },
     },
     prerender: {
       autoSubfolderIndex: false,
@@ -104,6 +110,11 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
   colorMode: {
-    preference: 'dark'
-  }
+    preference: 'dark',
+  },
+  turnstile: {
+    siteKey: '0x4AAAAAAAW28AStH7fIVgAl',
+    addValidateEndpoint: true,
+    theme: 'dark',
+  },
 })
