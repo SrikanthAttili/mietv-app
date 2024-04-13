@@ -115,6 +115,5 @@ export default defineNuxtConfig({
   turnstile: {
     siteKey: '0x4AAAAAAAW28AStH7fIVgAl',
     addValidateEndpoint: true,
-    theme: 'dark',
   },
 })

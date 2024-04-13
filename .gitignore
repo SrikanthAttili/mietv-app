@@ -29,3 +29,4 @@ logs
 
 .wrangler/state/v3
 .vscode/numbered-bookmarks.json
+.sfdx/

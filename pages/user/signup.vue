@@ -58,7 +58,6 @@ const form = reactive({ email: '', password: '', confirmPassword: '' })
           </UFormGroup>
           <NuxtTurnstile theme="dark" />
           <UButton :loading="isLoading" type="submit" label="sign up" color="gray" block />
-
           <p text-xs>
             This page is protected by cloudflare CAPTCHA to ensure you're not a bot.
           </p>

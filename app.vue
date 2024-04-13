@@ -1,5 +1,6 @@
 <script setup>
 import '@unocss/reset/tailwind.css'
+
 const user = useSupabaseUser()
 
 useHead({
@@ -27,12 +28,11 @@ useHead({
 })
 const isLoggedIn = ref()
 watchEffect(() => {
-  if (user.value) {
+  if (user.value)
     isLoggedIn.value = true
-  }
-  else{
+
+  else
     isLoggedIn.value = false
-  }
 })
 </script>
 
@@ -48,12 +48,13 @@ watchEffect(() => {
     </div>
 
     <ClientOnly>
-      <NavBar v-if="isLoggedIn" order-first/>
-      <NavBarAnon v-else order-first/>
+      <NavBar v-if="isLoggedIn" order-first />
+      <NavBarAnon v-else order-first />
     </ClientOnly>
-    
+
     <IframeModal />
   </div>
+  <UNotifications />
 </template>
 
 <style>
