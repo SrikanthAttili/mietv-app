@@ -1,10 +1,11 @@
 <script setup lang="ts">
 const { auth } = useSupabaseClient()
 
-const signOutMethod = async () => {
+async function signOutMethod() {
   console.log('signed-out')
   const { error } = await auth.signOut()
-  if (error) console.log(error)
+  if (error)
+    console.log(error)
   navigateTo('/')
 }
 
@@ -12,18 +13,19 @@ const items = [
   [{
     label: 'ben@example.com',
     slot: 'account',
-    disabled: true
-  }], [{
+    disabled: true,
+  }],
+  [{
     label: 'Settings',
-    icon: 'i-heroicons-cog-8-tooth'
-  }], [{
+    icon: 'i-heroicons-cog-8-tooth',
+  }],
+  [{
     label: 'Sign out',
     icon: 'i-heroicons-arrow-left-on-rectangle',
     slot: 'signOut',
-    click: signOutMethod
-  }]
+    click: signOutMethod,
+  }],
 ]
-
 </script>
 
 <template>
@@ -47,4 +49,3 @@ const items = [
     </template>
   </UDropdown>
 </template>
-
